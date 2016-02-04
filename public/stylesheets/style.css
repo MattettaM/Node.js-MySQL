@@ -60,6 +60,10 @@ table {
 	padding-top:10%;
 }
 
+.td {
+	width:30%;
+}
+
 th {
 	border-bottom: 1px solid #000;
 }
