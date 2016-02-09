@@ -27,3 +27,22 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 	// print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
+
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+	host	 : 'us-cdbr-iron-east-03.cleardb.net',
+	user	 : 'beffb49c35eb8a',
+	password : '00145932',
+	database : 'ad_701aaf7318de853'
+});
+
+connection.connect();
+
+connection.querry('SELECT * from tabellnamntobefilled ', function(err, rows, fields){
+	if(!err)
+		console.log('The solution is: ', rows);
+	else
+		console.log('Error while performin Query');
+});
+
+connection.end();
