@@ -28,15 +28,3 @@ app.listen(appEnv.port, '0.0.0.0', function() {
   console.log("server starting on " + appEnv.url);
 });
 
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-	host	 : 'us-cdbr-iron-east-03.cleardb.net',
-	user	 : 'beffb49c35eb8a',
-	password : '00145932',
-	database : 'ad_701aaf7318de853'
-});
-
-connection.connect();
-
-
-connection.end();
