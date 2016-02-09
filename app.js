@@ -38,11 +38,5 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.querry('SELECT * from tabellnamntobefilled ', function(err, rows, fields){
-	if(!err)
-		console.log('The solution is: ', rows);
-	else
-		console.log('Error while performin Query');
-});
 
 connection.end();
