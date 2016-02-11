@@ -32,7 +32,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host	: 'us-cdbr-iron-east-03.cleardb.net',
 	user	: 'beffb49c35eb8a',
-	password: '00145932'
+	password: '00145932',
+	database: 'ad_701aaf7318de853'
 });
 
 connection.connect(function(err){
@@ -41,8 +42,20 @@ connection.connect(function(err){
 		return;
 	}
 	console.log('connected as id ' + connection.threadId);
+
+	connection.query('SELECT * FROM test', function(err, rows, fields){
+		console.error(err);
+		console.log(rows);
+	});
 });
 
-connection.end(function(err){
-	
+app.get("/hello", function(req, res){
+	var val = req.query.value;
+	res.send("world " + val);
+})
+
+app.get("/data", function(req, res){
+	connection.query('SELECT * FROM test', function(err, rows, fields){
+		res.send(rows);
+	});
 })
