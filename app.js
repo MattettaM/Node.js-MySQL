@@ -43,9 +43,13 @@ connection.connect(function(err){
 	console.log('connected as id ' + connection.threadId);
 });
 
-connection.query('SELECT * FROM test', function(error, results, fields){
-	
-});
+function getPosts(cb) {
+	  var sql = 'SELECT firstname FROM test';
+	  connection.query(sql, function (err, result) {
+	    if (err) return cb(err);
+	    cb(null, result);
+	  });
+	}
 
 connection.end(function(err){
 	
