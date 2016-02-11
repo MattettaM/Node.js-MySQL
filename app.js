@@ -43,6 +43,18 @@ connection.connect(function(err){
 	console.log('connected as id ' + connection.threadId);
 });
 
+app.all('/', function (req, res) {
+	  getPosts(function (err, posts) {
+	    if (err) return res.json(err);
+	    res.render('index.html', {posts: posts});
+	  });
+	});
+
+getPosts(function (err, posts) {
+    if (err) return res.json(err);
+    res.render('index.html', {posts: posts, msg: msg});
+  });
+
 function getPosts(cb) {
 	  var sql = 'SELECT firstname FROM test';
 	  connection.query(sql, function (err, result) {

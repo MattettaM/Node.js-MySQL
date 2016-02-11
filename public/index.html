@@ -25,11 +25,14 @@
 	           			<a href="https://www.ng.bluemix.net/docs/#starters/nodejs/index.html#nodejs">documentation</a>
 	           			or use the Start Coding guide under your app in your dashboard.
 	           		</p>
-	           		<p id="dbtext"></p>
 				</td>
 			</tr>    	
 		</table>
-		
+		<table>
+        {{#posts}}
+          <tr><td>{{text}}</td></tr>
+        {{/posts}}
+      </table>
 	</body>
 
 </html>
