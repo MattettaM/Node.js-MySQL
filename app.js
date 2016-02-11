@@ -55,9 +55,14 @@ getPosts(function (err, posts) {
     res.render('index.html', {posts: posts, msg: msg});
   });
 
-function getPosts(cb) {
-	  var sql = 'SELECT firstname FROM test';
-	  connection.query(sql, function (err, result) {
+function addPosts(posts, cb) {
+	  var sql = 'INSERT INTO posts (text) VALUES ?';
+	  
+	  var values = posts.map(function (post) {
+	    return [post];
+	  });
+	  
+	  connection.query(sql, [values], function (err, result) {
 	    if (err) return cb(err);
 	    cb(null, result);
 	  });
