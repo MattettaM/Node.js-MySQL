@@ -43,31 +43,6 @@ connection.connect(function(err){
 	console.log('connected as id ' + connection.threadId);
 });
 
-app.all('/', function (req, res) {
-	  getPosts(function (err, posts) {
-	    if (err) return res.json(err);
-	    res.render('index.html', {posts: posts});
-	  });
-	});
-
-getPosts(function (err, posts) {
-    if (err) return res.json(err);
-    res.render('index.html', {posts: posts, msg: msg});
-  });
-
-function addPosts(posts, cb) {
-	  var sql = 'INSERT INTO posts (text) VALUES ?';
-	  
-	  var values = posts.map(function (post) {
-	    return [post];
-	  });
-	  
-	  connection.query(sql, [values], function (err, result) {
-	    if (err) return cb(err);
-	    cb(null, result);
-	  });
-	}
-
 connection.end(function(err){
 	
 })
