@@ -43,19 +43,33 @@ connection.connect(function(err){
 	}
 	console.log('connected as id ' + connection.threadId);
 
-	connection.query('SELECT * FROM test', function(err, rows, fields){
+	connection.query('SELECT * FROM test', function(err, rows, fields, res, req){
 		console.error(err);
 		console.log(rows);
+		
 	});
 });
-
-app.get("/hello", function(req, res){
-	var val = req.query.value;
-	res.send("world " + val);
-})
 
 app.get("/data", function(req, res){
 	connection.query('SELECT * FROM test', function(err, rows, fields){
 		res.send(rows);
 	});
-})
+});
+
+app.get("/id", function(req, res){
+	connection.query('SELECT id FROM test', function(err, rows, fields){
+		res.send(rows);
+	});
+});
+
+app.get("/first", function(req, res){
+	connection.query('SELECT firstname FROM test', function(err, rows, fields){
+		res.send(rows);
+	});
+});
+
+app.get("/last", function(req, res){
+	connection.query('SELECT lastname FROM test', function(err, rows, fields){
+		res.send(rows);
+	});
+});
