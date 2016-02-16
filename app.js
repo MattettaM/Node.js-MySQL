@@ -44,7 +44,10 @@ connection.connect(function(err){
 	console.log('connected as id ' + connection.threadId);
 
 	connection.query('SELECT * FROM test', function(err, rows, fields, res, req){
-		console.error(err);
+		if(err){
+			console.error(err);
+			return;
+		}
 		console.log(rows);
 		
 	});
@@ -52,24 +55,10 @@ connection.connect(function(err){
 
 app.get("/data", function(req, res){
 	connection.query('SELECT * FROM test', function(err, rows, fields){
-		res.send(rows);
-	});
-});
-
-app.get("/id", function(req, res){
-	connection.query('SELECT id FROM test', function(err, rows, fields){
-		res.send(rows);
-	});
-});
-
-app.get("/first", function(req, res){
-	connection.query('SELECT firstname FROM test', function(err, rows, fields){
-		res.send(rows);
-	});
-});
-
-app.get("/last", function(req, res){
-	connection.query('SELECT lastname FROM test', function(err, rows, fields){
+		if(err){
+			console.log(err);
+			return;
+		}
 		res.send(rows);
 	});
 });
