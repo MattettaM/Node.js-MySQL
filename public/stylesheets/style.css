@@ -10,13 +10,13 @@ body,html {
 	color: #ffffff;
 }
 
+h2{
+	margin-left: 25%;
+}
+
 a {
 	text-decoration: none;
 	color: #00aed1;
-}
-
-a:hover {
-	text-decoration: underline;
 }
 
 .newappIcon {
@@ -52,23 +52,12 @@ h1 {
 }
 
 
-table {
-	table-layout: fixed;
-	width: 800px;
-	margin: 0 auto;
-	word-wrap: break-word;
-	padding-top:10%;
-}
-
-.td_img {
-	width:30%;
-}
 
 th {
 	border-bottom: 1px solid #000;
 }
 
-th, td {
+th {
 	text-align: left;
 	padding: 2px 20px;
 }
@@ -92,4 +81,35 @@ pre {
 	border: 0;
 	width: 500px;
 	height: 300px;
+	border: inset;
+}
+
+ul{
+	list-style: none;
+	padding: 10px 0 0 25%;
+	float: left;
+	width: 500px;
+}
+
+ul li{
+	float: left;
+	padding: 0;
+}
+
+
+/*Following code makes the links look like buttons while not using the */
+ul li a{
+	border: 1px solid #000;
+	float: left;
+	display: block;
+	margin: 0;
+	padding: 4px 7px;
+	color: #333;
+	background: -webkit-linear-gradient(top, rgba(100, 150, 200, 1) 0%, rgba(50, 160, 169, 1) 100%); /*Chrome, Safari*/
+	background: linear-gradient(top, rgba(100, 150, 200, 1) 0%, rgba(50, 160, 169, 1) 100%); /* WC3 */
+}
+
+ul li a:hover{
+	background: -webkit-linear-gradient(top, rgba(120, 170, 220, 1) 0%, rgba(70, 180, 189, 1) 100%); /*Chrome, Safari*/
+	background: linear-gradient(top, rgba(120, 170, 220, 1) 0%, rgba(70, 180, 189, 1) 100%); /* WC3 */
 }
